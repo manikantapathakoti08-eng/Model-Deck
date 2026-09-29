@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ollama")
-@CrossOrigin("*")
 public class OllamaController {
 
     private ChatClient chatClient;
