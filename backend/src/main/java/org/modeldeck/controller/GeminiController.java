@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/gemini/api")
-@CrossOrigin("*")
 public class GeminiController {
 
     private ChatClient chatClient;
