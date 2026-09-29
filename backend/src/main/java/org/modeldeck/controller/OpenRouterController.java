@@ -7,7 +7,6 @@
 
     @RestController
     @RequestMapping("/open-router/api")
-    @CrossOrigin("*")
     public class OpenRouterController {
 
         private ChatClient chatClient;
