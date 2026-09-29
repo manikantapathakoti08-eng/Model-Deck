@@ -24,11 +24,10 @@ public class OllamaController {
                 .content();
         return ResponseEntity.ok(response);
         } catch (Throwable e) {
-            String errorMsg = e.getMessage() != null ? e.getMessage().toLowerCase() : "";
-            if (errorMsg.contains("quota") || errorMsg.contains("limit") || errorMsg.contains("503") || errorMsg.contains("demand") || errorMsg.contains("exhausted")) {
-                return ResponseEntity.ok("⚠️ Free limit completed or high demand. Please try again later.");
-            }
-            return ResponseEntity.ok("⚠️ Free limit completed or service temporarily busy.");
+            e.printStackTrace();
+            String cause = (e.getCause() != null) ? e.getCause().getMessage() : "Unknown cause";
+
+            return ResponseEntity.status(500).body("Server error: " + cause);
         }
     }
 }
